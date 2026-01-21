@@ -1,16 +1,16 @@
-name: Selenium Python Tests
+name: Selenium Python CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "main" ]
   pull_request:
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
+  selenium-tests:
+    runs-on: ubuntu-latest   # 🔹 Linux VM
 
     steps:
-    - name: Checkout code
+    - name: Checkout source code
       uses: actions/checkout@v4
 
     - name: Set up Python
@@ -22,6 +22,6 @@ jobs:
       run: |
         pip install -r requirements.txt
 
-    - name: Run Selenium Tests
+    - name: Run Selenium tests
       run: |
         pytest
